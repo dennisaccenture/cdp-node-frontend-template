@@ -6,7 +6,14 @@ export const homeController = {
   handler(_request, h) {
     return h.view('home/index', {
       pageTitle: 'Home',
-      heading: 'Home'
+      heading: 'Home',
+      localAuthority: 'Glamshire County Council',
+      breadcrumbs: [
+        {
+          text: 'Local Authority Payments (LAPs) home',
+          href: '/'
+        }
+      ]
     })
   }
 }

@@ -1,8 +1,13 @@
 {% extends "govuk/template.njk" %}
 
 {# Import GOVUK components globally #}
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+
+{% from "card/macro.njk" import appCard -%}
+{% from "languageToggle/macro.njk" import appLanguageToggle %}
+{%from "breadcrumbs/macro.njk" import appBreadCrumbs %}
 
 {# Import custom components globally #}
 {% from "heading/macro.njk" import appHeading %}
@@ -19,14 +24,10 @@
     homepageUrl: "https://www.gov.uk/",
     classes: "app-header",
     containerClasses: "govuk-width-container",
-    serviceName: serviceName,
-    serviceUrl: serviceUrl,
     useTudorCrown: true
   }) }}
 
-  {{ govukServiceNavigation({
-    navigation: navigation
-  }) }}
+
 {% endblock %}
 
 {% block pageTitle %}
@@ -34,11 +35,38 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% if breadcrumbs.length > 1 %}
-    {{ govukBreadcrumbs({
-      items: breadcrumbs
-    }) }}
+
+{{ govukServiceNavigation({
+  serviceName: "EPR Account for Local Authority Payments",
+  serviceUrl: "#",
+  navigationClasses: "nav-links-align-right",
+  navigation: [
+    {
+      href: "#",
+      text: "Your Defra Account",
+      active: false
+    },
+    {
+      href: "#",
+      text: "Sign out"
+    }
+  ]
+})
+}}
+
+{{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help improve it.'
+}) }}
+
+  {% if breadcrumbs.length >= 1 %}
+  {{ appBreadCrumbs({
+    breadcrumbs: breadcrumbs
+  }) }}
   {% endif %}
+  
 {% endblock %}
 
 {% block content %}{% endblock %}
@@ -47,6 +75,10 @@
   {{ govukFooter({
     meta: {
       items: [
+        {
+          href: "https://www.gov.uk/help",
+          text: "Help"
+        },
         {
           href: "https://www.gov.uk/help/privacy-notice",
           text: "Privacy"
@@ -58,6 +90,22 @@
         {
           href: "https://www.gov.uk/help/accessibility-statement",
           text: "Accessibility statement"
+        },
+        {
+          href: "https://www.gov.uk/help/accessibility-statement",
+          text: "Contact"
+        },
+        {
+          href: "https://www.gov.uk/help/accessibility-statement",
+          text: "Terms and conditions"
+        },
+        {
+          href: "https://www.gov.uk/help/accessibility-statement",
+          text: "Something not equally understanding"
+        },
+        {
+          href: "https://www.gov.uk/help/accessibility-statement",
+          text: "Government Digital Service"
         }
       ]
     }

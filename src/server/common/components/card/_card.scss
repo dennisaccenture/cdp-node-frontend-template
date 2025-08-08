@@ -1,0 +1,41 @@
+    .govuk-grid-row {
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .custom-container-card {
+        display: flex;
+    }
+
+    .custom-card {
+        flex: 1;
+        margin-bottom: 2em;
+        padding: 1em;
+        background-color: #f3f2f1;
+        border-bottom: #1d70b8 4px solid;
+    }
+
+    .custom-card-border-blue {
+        margin-bottom: 2em;
+        padding: 1em;
+        border: #1d70b8 1px solid;
+    }
+
+    .govuk-service-navigation {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .govuk-service-navigation__wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .govuk-service-navigation__list {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }

@@ -1,0 +1,15 @@
+<div class="govuk-grid-column-one-half custom-container-card">
+    <div class="custom-card">
+        <h2 class="govuk-heading-m">
+            <a class="govuk-link" href="{{ params.href }}">{{ params.heading }}</a>
+        </h2>
+        <p class="govuk-body">{{ params.body }}:</p>
+        {% if params.paragraph.length > 0 %}
+            <ul class="govuk-list govuk-list--bullet">
+                {% for item in params.paragraph %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</div>

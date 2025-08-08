@@ -1,6 +1,54 @@
 {% extends 'layouts/page.njk' %}
 
 {% block content %}
+  {# {{ govukBreadcrumbs({
+        collapseOnMobile: true,
+        items: [
+          {
+            text: "LAPs home",
+            href: "/"
+          }
+        ]
+  }) }} #}
+
+
+  <span class="govuk-caption-xl">Local Authority Payments (LAPs) home</span>
+  <h1 class="govuk-heading-xl">{{ localAuthority }}</h1>
+  
+  <div class="govuk-grid-row">
+    {{ appCard({
+      href: "/payment-documents",
+      heading: "Payment documents",
+      body: "You can view and download your",
+      paragraph: [
+        "estimated grant payment amounts for extended producer responsibility (EPR) packaging",
+        "remittance advice with payment details"
+      ]
+    }) }}
+    {{ appCard({
+      href: "/bank-details",
+      heading: "Bank details",
+      body: "You can",
+      paragraph: [
+        "view bank details"
+      ]
+    }) }}
+  </div>
+  
+  <div class="govuk-grid-row">
+    {{ appCard({
+      href: "/help",
+      heading: "Get help",
+      body: "You can view our contact details and find links for",
+      paragraph: [
+        "read Local Authority Payments (LAPs) guidance",
+        "raise a support request"
+      ]
+    }) }}
+  </div>
+{% endblock %}
+
+{# {% block content %}
   {{ appHeading({
     text: heading,
     caption: "Core delivery platform Node.js Frontend Template."
@@ -56,4 +104,4 @@
     </div>
   </div>
 
-{% endblock %}
+{% endblock %} #}
